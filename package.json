@@ -1,0 +1,68 @@
+{
+  "name": "card-testing-guard",
+  "version": "0.1.0",
+  "description": "Detects and stops card-testing attacks on online checkouts, with explainable rules and no training data needed.",
+  "license": "MIT",
+  "author": "Narineh Zargarian",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "bin": {
+    "card-testing-guard": "./dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "!dist/**/*.map",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build",
+    "prepare": "npm run build"
+  },
+  "keywords": [
+    "fraud",
+    "card-testing",
+    "carding",
+    "payments",
+    "stripe",
+    "checkout",
+    "velocity",
+    "rate-limit"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/narinehzargarian/card-testing-guard.git"
+  },
+  "homepage": "https://github.com/narinehzargarian/card-testing-guard#readme",
+  "bugs": {
+    "url": "https://github.com/narinehzargarian/card-testing-guard/issues"
+  },
+  "peerDependencies": {
+    "ioredis": "^5.4.0"
+  },
+  "peerDependenciesMeta": {
+    "ioredis": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "ioredis": "^5.4.1",
+    "typescript": "^5.6.3",
+    "vitest": "^2.1.8"
+  }
+}

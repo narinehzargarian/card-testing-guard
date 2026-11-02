@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    strategy:
+      matrix:
+        node: ["20", "22"]
+    services:
+      redis:
+        image: redis:7-alpine
+        ports:
+          - 6379:6379
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - name: Test, including Redis and the evaluation
+        run: npm test
+        env:
+          REDIS_URL: redis://localhost:6379
+      - run: npm run build
+      - name: Try the packed package as a user would
+        run: |
+          npm pack
+          mkdir /tmp/consumer && cd /tmp/consumer && npm init -y > /dev/null
+          npm install "$GITHUB_WORKSPACE"/card-testing-guard-*.tgz
+          npx card-testing-guard simulate --out traffic.csv
+          npx card-testing-guard scan traffic.csv || test $? -eq 1

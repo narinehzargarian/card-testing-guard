@@ -1,0 +1,7 @@
+node_modules/
+dist/
+*.tgz
+coverage/
+traffic.csv
+.DS_Store
+.env
