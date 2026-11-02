@@ -14,7 +14,7 @@
     }
   },
   "bin": {
-    "card-testing-guard": "./dist/cli.js"
+    "card-testing-guard": "dist/cli.js"
   },
   "files": [
     "dist",
