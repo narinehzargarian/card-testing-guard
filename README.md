@@ -12,11 +12,13 @@ Card testing is when fraudsters run stolen card numbers through a shop's checkou
 
 ## Install
 
-Requires Node.js 20 or newer.
+Requires Node.js 20 or newer. Install straight from GitHub, which builds the package on install:
 
 ```sh
-npm install card-testing-guard
+npm install github:narinehzargarian/card-testing-guard#v0.1.0
 ```
+
+The commands below use `npx card-testing-guard`, which works once it's installed in your project.
 
 ## Use it in your checkout
 
