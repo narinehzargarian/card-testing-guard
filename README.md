@@ -1,5 +1,8 @@
 # card-testing-guard
 
+[![npm](https://img.shields.io/npm/v/card-testing-guard)](https://www.npmjs.com/package/card-testing-guard)
+[![CI](https://github.com/narinehzargarian/card-testing-guard/actions/workflows/ci.yml/badge.svg)](https://github.com/narinehzargarian/card-testing-guard/actions/workflows/ci.yml)
+
 Detects and stops **card-testing attacks** on online checkouts, with rules you can read and no training data needed.
 
 Card testing is when fraudsters run stolen card numbers through a shop's checkout, usually with tiny charges, to find out which cards still work. The shop pays decline fees, gets chargebacks, and can lose its payment account. Small shops, donation pages, and free trials are frequent targets, and they rarely have fraud tools.
@@ -12,13 +15,11 @@ Card testing is when fraudsters run stolen card numbers through a shop's checkou
 
 ## Install
 
-Requires Node.js 20 or newer. Install straight from GitHub, which builds the package on install:
+Requires Node.js 20 or newer.
 
 ```sh
-npm install github:narinehzargarian/card-testing-guard#v0.1.0
+npm install card-testing-guard
 ```
-
-The commands below use `npx card-testing-guard`, which works once it's installed in your project.
 
 ## Use it in your checkout
 
